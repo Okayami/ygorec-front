@@ -2,35 +2,27 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { HowItWorksComponent } from './how-it-works/how-it-works.component';
 import { RouterModule, Routes } from '@angular/router';
-import { FirstComponent } from './first/first.component';
-import { SecondComponent } from './second/second.component';
+import { FormsModule } from '@angular/forms';
 
-export const appRouteList: Routes = [
-  {
-      path: 'landing',
-      component: FirstComponent
-  },
-  {
-      path: 'search',
-      component: SecondComponent
-  },
-  {
-      path: '**',
-      redirectTo: 'landing'
-  }
+const routes:Routes = [
+  {path:'about-us', component:AboutUsComponent},
+  {path:'how-it-works', component:HowItWorksComponent}
 ];
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AboutUsComponent,
+    HowItWorksComponent
   ],
-  exports: [
-    RouterModule
-  ],
+  exports:[RouterModule],
   imports: [
-    RouterModule.forRoot(appRouteList),
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(routes),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
